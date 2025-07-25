@@ -20,4 +20,4 @@ A simple and interactive web app built using Streamlit that allows users to:
  
 ## 🌐 Live Demo
 You can view the live app here:  
-🔗 Student Directory App: [Click here] (https://ai-ml-by-cynbit-gsluum83frmdzwsup6roqb.streamlit.app)
+🔗 Student Directory App: [Click here](https://ai-ml-by-cynbit-gsluum83frmdzwsup6roqb.streamlit.app)
