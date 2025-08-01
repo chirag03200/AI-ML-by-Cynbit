@@ -7,6 +7,6 @@ You can view the live app here:
 
 2.Emoji detector App: [Click here](https://ai-ml-by-cynbit-caxqgf8ytmldfjorsbufyu.streamlit.app/)
 
-3.Fake News detector App: [Click here](https://ai-ml-by-cynbit-8dwwiaydadah45kkvb3nof.streamlit.app/)
+3.Fake News detector App: [Click here](https://ai-ml-by-cynbit-v6q4eish9qn9bwcmaji7ns.streamlit.app/)
 
-4.Student skills matcher App: [Click here](https://ai-ml-by-cynbit-zk9t7zkbjw2o8whv5bxf2n.streamlit.app/)
+4.Student skills matcher App: [Click here](https://ai-ml-by-cynbit-cspkadkeatd6eyoxpedotu.streamlit.app/)
