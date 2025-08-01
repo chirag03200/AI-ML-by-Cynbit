@@ -3,7 +3,7 @@ A code repo for Ai-Ml by cynbit training
 
 ## 🌐 Live Demo
 You can view the live app here:  
-1. 🔗 Student Directory App: [Click here](https://ai-ml-by-cynbit-gsluum83frmdzwsup6roqb.streamlit.app)
+1.Student Directory App: [Click here](https://ai-ml-by-cynbit-gsluum83frmdzwsup6roqb.streamlit.app)
 
 2.Emoji detector App: [Click here](https://ai-ml-by-cynbit-caxqgf8ytmldfjorsbufyu.streamlit.app/)
 
