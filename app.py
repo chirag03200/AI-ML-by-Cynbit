@@ -1,60 +1,24 @@
 import streamlit as st
-import joblib
-import pandas as pd
-import os
+from matcher import load_data, vectorize_skills, get_top_matches
 
-# Setup
-st.set_page_config(page_title="Emotion Detector", page_icon="🧠", layout="centered")
+st.set_page_config(page_title="Student Skill Matcher", layout="centered")
 
-st.markdown("<h1 style='text-align: center;'>🧠 Emotion Detection App</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center;'>Type a sentence and we'll predict the emotion it conveys.</p>", unsafe_allow_html=True)
+st.title("🤖 Student Skill Matcher")
+st.write("Enter your skills and we'll find you the best collaborators!")
 
-# Load Model  
-MODEL_PATH = "emotion_model.pkl"
+# Load and process
+df = load_data()
+tfidf, skill_matrix = vectorize_skills(df)
 
-if os.path.exists(MODEL_PATH):
-    model = joblib.load(MODEL_PATH)
-else:
-    st.error("Model file not found! Please train the model first.")
-    st.stop()
+# User input
+user_input = st.text_input("🔧 Enter your skills (comma-separated):", "Python, Machine Learning")
 
-# Emoji Map 
-emojis = {
-    "joy": "😄", "anger": "😠", "sadness": "😢",
-    "fear": "😨", "love": "❤️", "surprise": "😲" 
-}
-
-# Input Section 
-with st.form("emotion_form"):
-    text_input = st.text_input(" Enter your text:")
-    submitted = st.form_submit_button("🔍 Detect Emotion")
-
-# Prediction  
-if submitted:
-    if not text_input.strip():
-        st.warning(" Please enter a valid sentence.")
-    else:
-        prediction = model.predict([text_input])[0]
-        probabilities = model.predict_proba([text_input])[0]
-
-        # Display predicted emotion
-        emoji_display = emojis.get(prediction, "❓")
-        st.markdown(f"<h3> Detected Emotion: <span style='color:#ff4b4b'>{prediction.capitalize()} {emoji_display}</span></h3>", unsafe_allow_html=True)
-
-        # Optional warning if confidence is low
-        confidence = max(probabilities)
-        if confidence < 0.5:
-            st.info(f" Prediction confidence is low: {confidence:.2f}")
-
-        # Probability bar chart
-        st.subheader("📊 Prediction Probabilities")
-        prob_df = pd.DataFrame({
-            "Emotion": model.classes_,
-            "Probability": probabilities
-        }).sort_values(by="Probability", ascending=False)
-
-        st.bar_chart(prob_df.set_index("Emotion"))
-
-# Footer
-st.markdown("---")
-st.markdown("<p style='text-align: center;'>Made with ❤️ using Streamlit & scikit-learn</p>", unsafe_allow_html=True)
+if st.button("Find Matches"):
+    with st.spinner("Finding best collaborators..."):
+        matches = get_top_matches(user_input, df, tfidf, skill_matrix)
+        st.subheader("👥 Top Matches:")
+        for idx, row in matches.iterrows():
+            st.markdown(f"{row['Name']}** - {row['Skills']}")
+            st.markdown(f"💯 Match Score: {row['MatchScore (%)']}%")
+            st.markdown(f"📂 Project Domain: {row['ProjectDomain']}")
+            st.markdown("---")
