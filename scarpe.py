@@ -23,7 +23,7 @@ def scrape_books(pages=10):
         for book in books:
             title = book.h3.a['title']
             price_text = book.select_one('p.price_color').text
-            price = float(price_text.replace('Â', '').replace('£', '').strip())
+            price = float(price_text.replace('Â', '').replace('£', '₹').strip())
             availability = book.select_one('p.instock.availability').text.strip()
             rating_word = book.select_one('p.star-rating')['class'][1]
             rating = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five'].index(rating_word)
