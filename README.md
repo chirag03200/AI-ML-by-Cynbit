@@ -10,3 +10,5 @@ You can view the live app here:
 3.Fake News detector App: [Click here](https://ai-ml-by-cynbit-v6q4eish9qn9bwcmaji7ns.streamlit.app/)
 
 4.Student skills matcher App: [Click here](https://ai-ml-by-cynbit-cspkadkeatd6eyoxpedotu.streamlit.app/)
+
+5.Bookstore scraper App: [Click here](https://ai-ml-by-cynbit-vshknvgztaj3nciqjxb2ds.streamlit.app/)
