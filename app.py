@@ -1,24 +1,21 @@
 import streamlit as st
-from matcher import load_data, vectorize_skills, get_top_matches
+import pandas as pd
 
-st.set_page_config(page_title="Student Skill Matcher", layout="centered")
+st.set_page_config(page_title="📚 Bookstore Dashboard", layout="centered")
+df = pd.read_csv("books.csv")
 
-st.title("Student Skill Matcher")
-st.write("Enter your skills and we'll find you the best collaborators")
+st.title("📚 Bookstore Scraper App")
 
-# Load and process
-df = load_data()
-tfidf, skill_matrix = vectorize_skills(df)
+st.dataframe(df)
 
-# User input
-user_input = st.text_input("🔧 Enter your skills (comma-separated):", "Python, Machine Learning")
+# Price filter
+price_limit = st.slider("Show books below this price (£):", 0, 100, 30)
+filtered = df[df['Price'] <= price_limit]
+st.write(f"### Books under £{price_limit}")
+st.dataframe(filtered)
 
-if st.button("Find Matches"):
-    with st.spinner("Finding best collaborators..."):
-        matches = get_top_matches(user_input, df, tfidf, skill_matrix)
-        st.subheader("Top Matches:")
-        for idx, row in matches.iterrows():
-            st.markdown(f"{row['Name']}** - {row['Skills']}")
-            st.markdown(f" Match Score: {row['MatchScore (%)']}%")
-            st.markdown(f" Project Domain: {row['ProjectDomain']}")
-            st.markdown("---")
+# Rating filter
+rating = st.selectbox("Select minimum rating:", [0, 1, 2, 3, 4, 5])
+filtered_rating = df[df['Rating'] >= rating]
+st.write(f"### Books with rating ≥ {rating}")
+st.dataframe(filtered_rating)
