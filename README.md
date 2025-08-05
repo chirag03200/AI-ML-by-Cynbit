@@ -12,3 +12,5 @@ You can view the live app here:
 4.Student skills matcher App: [Click here](https://ai-ml-by-cynbit-cspkadkeatd6eyoxpedotu.streamlit.app/)
 
 5.Bookstore scraper App: [Click here](https://ai-ml-by-cynbit-qvgwakvkezsdkv7fl9hkpa.streamlit.app/)
+
+6.Trending topics Extractor App :[Click here](https://ai-ml-by-cynbit-dh7dzg8hrdufsfoc75czmw.streamlit.app/)
