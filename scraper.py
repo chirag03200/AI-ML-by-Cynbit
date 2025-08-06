@@ -1,20 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 
-def get_hackernews_titles(pages=1, override_page=None):
-    titles = []
-    base_url = "https://news.ycombinator.com/news?p="
-
-    if override_page is not None:
-        pages_to_scrape = [override_page]
-    else:
-        pages_to_scrape = list(range(1, pages + 1))
-
-    for page in pages_to_scrape:
-        res = requests.get(base_url + str(page))
-        soup = BeautifulSoup(res.text, "html.parser")
+def scrape_hackernews_headlines(pages=1):
+    headlines = []
+    for page in range(1, pages + 1):
+        url = f"https://news.ycombinator.com/news?p={page}"
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, "html.parser")
         links = soup.select(".titleline > a")
         for link in links:
-            titles.append(link.text.strip())
-
-    return titles
+            headlines.append(link.text)
+    return list(set(headlines))  # Remove duplicates
