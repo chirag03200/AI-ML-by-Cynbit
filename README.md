@@ -13,4 +13,6 @@ You can view the live app here:
 
 5.Bookstore scraper App: [Click here](https://ai-ml-by-cynbit-qvgwakvkezsdkv7fl9hkpa.streamlit.app/)
 
-6.Trending topics Extractor App :[Click here](https://ai-ml-by-cynbit-dh7dzg8hrdufsfoc75czmw.streamlit.app/)
+6.Trending topics Extractor App: [Click here](https://ai-ml-by-cynbit-dh7dzg8hrdufsfoc75czmw.streamlit.app/)
+
+7.News_sentiment App: [Click here](https://ai-ml-by-cynbit-eq23fazea5uydon2t7lmcz.streamlit.app/)
