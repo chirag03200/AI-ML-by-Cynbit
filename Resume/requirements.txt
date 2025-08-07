@@ -1,0 +1,6 @@
+streamlit
+docx2txt
+PyMuPDF
+pandas
+matplotlib
+wordcloud
