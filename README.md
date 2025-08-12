@@ -18,3 +18,5 @@ You can view the live app here:
 7.News_sentiment App: [Click here](https://ai-ml-by-cynbit-eq23fazea5uydon2t7lmcz.streamlit.app/)
 
 8.Resume parser App:- [Click here](https://ai-ml-by-cynbit-yzkztgcruvsnfwrokq358c.streamlit.app/)
+
+9.Image creation App :-[Click here](https://ai-ml-by-cynbit-9lztdvefemvaqkyhf7pivo.streamlit.app/)
