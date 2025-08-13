@@ -16,4 +16,4 @@ Upload your dataset, and the app will classify each review as **Positive**, **Ne
 ## 🌐 Live Demo
 You can view the live app here: 
 
-10.Product Review sentiment Analyzer :-[Click here](https://ai-ml-by-cynbit-8kqn44oqbkx3ha3pkctwgr.streamlit.app/)
+🛍️ Product Review sentiment Analyzer :-[Click here](https://ai-ml-by-cynbit-8kqn44oqbkx3ha3pkctwgr.streamlit.app/)
