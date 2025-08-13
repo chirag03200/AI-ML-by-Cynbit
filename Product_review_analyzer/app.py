@@ -11,12 +11,12 @@ from io import StringIO
 nltk.download('stopwords')
 nltk.download('vader_lexicon')
 
-st.set_page_config(page_title="Amazon Review Sentiment Analyzer", layout="wide")
-st.title("📦 Amazon Reviews Sentiment Analysis")
+st.set_page_config(page_title="Product Review Sentiment Analyzer", layout="wide")
+st.title("📦 product Reviews Sentiment Analysis")
 
-st.write("Upload your `.ft.txt` Amazon reviews file to analyze sentiment.")
+st.write("Upload your `.ft.txt`,`CSV` product reviews file to analyze sentiment.")
 
-uploaded_file = st.file_uploader("Choose a .ft.txt file", type=["txt"])
+uploaded_file = st.file_uploader("Choose a file", type=["txt","CSV"])
 
 if uploaded_file is not None:
     # ---------------- Load FastText .ft.txt data ----------------
