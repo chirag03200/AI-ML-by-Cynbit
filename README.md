@@ -20,3 +20,5 @@ You can view the live app here:
 8.Resume parser App:- [Click here](https://ai-ml-by-cynbit-yzkztgcruvsnfwrokq358c.streamlit.app/)
 
 9.Image creation App :-[Click here](https://ai-ml-by-cynbit-9lztdvefemvaqkyhf7pivo.streamlit.app/)
+
+10.Product Review sentiment Analyzer :-[Click here](https://ai-ml-by-cynbit-8kqn44oqbkx3ha3pkctwgr.streamlit.app/)
