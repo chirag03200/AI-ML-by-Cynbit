@@ -1,50 +1,82 @@
 import streamlit as st
 from transformers import pipeline
 from PIL import Image
+import torch
 
-# Page config
-st.set_page_config(page_title="🖼️ Image Caption Generator", layout="wide")
-
-# Sidebar settings
-st.sidebar.title("⚙️ Settings")
-model_name = st.sidebar.selectbox(
-    "Choose Model",
-    ["nlpconnect/vit-gpt2-image-captioning", "Salesforce/blip-image-captioning-base"],
-    index=0
+# ------------------------
+# App Config
+# ------------------------
+st.set_page_config(
+    page_title="🖼 AI Image Caption Generator",
+    page_icon="🖼",
+    layout="wide"
 )
-st.sidebar.markdown("---")
-st.sidebar.write("📌 Upload an image and get a generated caption instantly.")
 
-# Cache model loading
+st.markdown(
+    """
+    <style>
+    .stApp { background-color: #f5f7fa; }
+    .caption-box {
+        padding: 15px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        font-size: 18px;
+    }
+    .title-text {
+        text-align: center;
+        font-size: 32px;
+        color: #333;
+        font-weight: bold;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# ------------------------
+# Load Model
+# ------------------------
 @st.cache_resource
-def load_model(model_name):
-    return pipeline("image-to-text", model=model_name)
+def load_model(model_name="Salesforce/blip-image-captioning-base"):
+    return pipeline("image-to-text", model=model_name, device=0 if torch.cuda.is_available() else -1)
 
-# Load the model
-with st.spinner("🔄 Loading model... Please wait."):
-    captioner = load_model(model_name)
+# ------------------------
+# UI Title
+# ------------------------
+st.markdown('<p class="title-text">🖼 AI Image Caption Generator</p>', unsafe_allow_html=True)
 
-# Main title
-st.markdown("<h1 style='text-align: center; color: #4CAF50;'>🖼️ AI Image Caption Generator</h1>", unsafe_allow_html=True)
-st.write("Upload an image and let AI describe it for you! 🎯")
+# Sidebar
+st.sidebar.header("⚙️ Settings")
+model_choice = st.sidebar.selectbox(
+    "Model",
+    ["Salesforce/blip-image-captioning-base", "Salesforce/blip-image-captioning-large"]
+)
+max_tokens = st.sidebar.slider("Max new tokens", 10, 100, 30)
 
-# Image uploader
-uploaded_image = st.file_uploader("📤 Upload Image", type=["jpg", "jpeg", "png"])
+# Load selected model
+caption_model = load_model(model_choice)
 
-if uploaded_image is not None:
+# ------------------------
+# File Upload
+# ------------------------
+uploaded_image = st.file_uploader("📤 Upload an image", type=["jpg", "jpeg", "png"])
+
+if uploaded_image:
     image = Image.open(uploaded_image).convert("RGB")
-    
-    # Show uploaded image
-    st.image(image, caption="Uploaded Image", use_container_width=True)
-    
-    # Generate caption button
-    if st.button("✨ Generate Caption", use_container_width=True):
-        with st.spinner("Generating caption... ⏳"):
-            caption = captioner(image)[0]['generated_text']
-        st.success("✅ Caption Generated!")
-        st.markdown(f"<h3 style='color: #2196F3;'>📝 {caption}</h3>", unsafe_allow_html=True)
 
-# Footer
-st.markdown("---")
-st.markdown("<p style='text-align:center; color:grey;'>Built with ❤️ using Streamlit & Hugging Face</p>", unsafe_allow_html=True)
+    col1, col2 = st.columns([1.2, 1])
 
+    with col1:
+        st.image(image, caption="Uploaded image", use_container_width=True)
+
+    with col2:
+        if st.button("✨ Generate Caption", use_container_width=True):
+            with st.spinner("Analyzing image..."):
+                result = caption_model(image, max_new_tokens=max_tokens)
+                caption_text = result[0]['generated_text']
+
+            st.markdown("#### 📝 Generated Caption")
+            st.markdown(f"<div class='caption-box'>{caption_text}</div>", unsafe_allow_html=True)
+
+            st.caption(f"Model: `{model_choice}` | Max tokens: {max_tokens}")
