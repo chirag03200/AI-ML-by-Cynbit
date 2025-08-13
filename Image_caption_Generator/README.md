@@ -1,4 +1,4 @@
-<img width="1366" height="768" alt="Screenshot (174)" src="https://github.com/user-attachments/assets/e39131d6-06bd-49b1-a3a8-6457b5d4d4d3" />## 🖼 AI Image Caption Generator
+## 🖼 AI Image Caption Generator
 
 An interactive **Streamlit web app** that generates descriptive captions for images using **Hugging Face image-to-text models**.  
 Simply upload an image, and the AI will describe it for you. 🎯
