@@ -9,7 +9,7 @@ st.title("🖼️→📝 Image Caption Generator")
 @st.cache_resource(show_spinner=False)
 def get_captioner(model_name: str):
     # device_map="auto" uses GPU if available; CPU otherwise
-    return pipeline("image-to-text", model=model_name, device_map="auto")
+    return pipeline("image-to-text", model=model_name)
 
 with st.sidebar:
     st.header("Settings")
@@ -45,3 +45,4 @@ if generate:
             st.subheader("Generated caption")
             st.write(out)
             st.caption(f"Model: `{model_choice}` | Max tokens: {max_tokens}")
+
