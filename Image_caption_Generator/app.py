@@ -35,7 +35,7 @@ if uploaded_image is not None:
     image = Image.open(uploaded_image).convert("RGB")
     
     # Show uploaded image
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)
     
     # Generate caption button
     if st.button("✨ Generate Caption", use_container_width=True):
@@ -47,3 +47,4 @@ if uploaded_image is not None:
 # Footer
 st.markdown("---")
 st.markdown("<p style='text-align:center; color:grey;'>Built with ❤️ using Streamlit & Hugging Face</p>", unsafe_allow_html=True)
+
