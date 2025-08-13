@@ -1,5 +1,0 @@
-transformers>=4.0.0
-torch
-streamlit
-PyPDF2
-gensim
