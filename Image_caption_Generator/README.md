@@ -17,7 +17,7 @@ Simply upload an image, and the AI will describe it for you. 🎯
 
 ## 📸 Demo
 ![App Screenshot]
-## [Click here](<img width="1366" height="768" alt="Screenshot (174)" src="https://github.com/user-attachments/assets/69c29f02-98a9-4b12-97eb-7ae3c8db3e3e"/>)
+<img width="1366" height="768" alt="Screenshot (174)" src="https://github.com/user-attachments/assets/09d2a1b1-8d05-4991-81c8-4fadf418f6a5" />
 
 
 You can view the live app here: 
