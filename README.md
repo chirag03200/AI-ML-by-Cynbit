@@ -22,3 +22,5 @@ You can view the live app here:
 9.Image creation App :-[Click here](https://ai-ml-by-cynbit-9lztdvefemvaqkyhf7pivo.streamlit.app/)
 
 10.Product Review sentiment Analyzer :-[Click here](https://ai-ml-by-cynbit-8kqn44oqbkx3ha3pkctwgr.streamlit.app/)
+
+11.Image Caption Generator App:- [Click here](https://ai-ml-by-cynbit-d7nhthium7d6uxp6zbeeag.streamlit.app/)
