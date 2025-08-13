@@ -1,4 +1,4 @@
-## 🖼 AI Image Caption Generator
+<img width="1366" height="768" alt="Screenshot (174)" src="https://github.com/user-attachments/assets/e39131d6-06bd-49b1-a3a8-6457b5d4d4d3" />## 🖼 AI Image Caption Generator
 
 An interactive **Streamlit web app** that generates descriptive captions for images using **Hugging Face image-to-text models**.  
 Simply upload an image, and the AI will describe it for you. 🎯
@@ -16,7 +16,9 @@ Simply upload an image, and the AI will describe it for you. 🎯
 ---
 
 ## 📸 Demo
-![App Screenshot][Click here](<img width="1366" height="768" alt="Screenshot (174)" src="https://github.com/user-attachments/assets/e7083cde-511c-4642-be4f-74aa690148ff" />)
+![App Screenshot]
+[Click here](<img width="1366" height="768" alt="Screenshot (174)" src="https://github.com/user-attachments/assets/69c29f02-98a9-4b12-97eb-7ae3c8db3e3e" />)
+
 
 You can view the live app here: 
 ## Image Caption Generator App:- [Click here](https://ai-ml-by-cynbit-d7nhthium7d6uxp6zbeeag.streamlit.app/)
