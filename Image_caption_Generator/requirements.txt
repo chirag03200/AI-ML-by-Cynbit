@@ -1,8 +1,8 @@
+streamlit
 transformers
 torch
 torchvision
 pillow
-streamlit
 safetensors
 huggingface-hub
 tqdm
